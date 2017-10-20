@@ -406,68 +406,7 @@ def bot(op):
                     if msg.contentMetadata["mid"] in wait["commentBlack"]:
                         cl.sendText(msg.to,"already")
                         wait["wblack"] = False
-                    else:
-                        wait["commentBlack"][msg.contentMetadata["mid"]] = True
-                        wait["wblack"] = False
-                        cl.sendText(msg.to,"decided not to comment")
-
-               elif wait["dblack"] == True:
-                   if msg.contentMetadata["mid"] in wait["commentBlack"]:
-                        del wait["commentBlack"][msg.contentMetadata["mid"]]
-                        cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        
-                        wait["dblack"] = False
-
-                   else:
-                        wait["dblack"] = False
-                        cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-                        
-               elif wait["wblacklist"] == True:
-                   if msg.contentMetadata["mid"] in wait["blacklist"]:
-                        cl.sendText(msg.to,"already")
-                        ki.sendText(msg.to,"already")
-                        kk.sendText(msg.to,"already")
-                        wait["wblacklist"] = False
-                   else:
-                        wait["blacklist"][msg.contentMetadata["mid"]] = True
-                        wait["wblacklist"] = False
-                        cl.sendText(msg.to,"aded")
-                        ki.sendText(msg.to,"aded")
-                        kk.sendText(msg.to,"aded")
-               
-               elif wait["dblacklist"] == True:
-                   if msg.contentMetadata["mid"] in wait["blacklist"]:
-                        del wait["blacklist"][msg.contentMetadata["mid"]]
-                        cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        wait["dblacklist"] = False
-
-                   else:
-                        wait["dblacklist"] = False
-                        cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-               elif wait["contact"] == True:
-                    msg.contentType = 0
-                    cl.sendText(msg.to,msg.contentMetadata["mid"])
-                    if 'displayName' in msg.contentMetadata:
-                        contact = cl.getContact(msg.contentMetadata["mid"])
-                        try:
-                            cu = cl.channel.getCover(msg.contentMetadata["mid"])
-                        except:
-                            cu = ""
-                        cl.sendText(msg.to,"[displayName]:\n" + msg.contentMetadata["displayName"] + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[statusMessage]:\n" + contact.statusMessage + "\n[pictureStatus]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[coverURL]:\n" + str(cu))
-                    else:
-                        contact = cl.getContact(msg.contentMetadata["mid"])
-                        try:
-                            cu = cl.channel.getCover(msg.contentMetadata["mid"])
-                        except:
-                            cu = ""
+      
                         cl.sendText(msg.to,"[displayName]:\n" + contact.displayName + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[statusMessage]:\n" + contact.statusMessage + "\n[pictureStatus]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[coverURL]:\n" + str(cu))
             elif msg.contentType == 16:
                 if wait["timeline"] == True:
@@ -512,49 +451,7 @@ def bot(op):
                 midd = msg.text.replace("Lc kick ","")
                 ki.kickoutFromGroup(msg.to,[midd])
             elif "Say2 kick " in msg.text:
-                midd = msg.text.replace("Hy kick ","")
-                kk.kickoutFromGroup(msg.to,[midd])
-            elif "Invite " in msg.text:
-                midd = msg.text.replace("Invite ","")
-                cl.findAndAddContactsByMid(midd)
-                cl.inviteIntoGroup(msg.to,[midd])
-            elif "Lc invite " in msg.text:
-                midd = msg.text.replace("Lc invite ","")
-                ki.findAndAddContactsByMid(midd)
-                ki.inviteIntoGroup(msg.to,[midd])
-            elif "Hy invite " in msg.text:
-                midd = msg.text.replace("Hy invite ","")
-                kk.findAndAddContactsByMid(midd)
-                kk.inviteIntoGroup(msg.to,[midd])
-            elif msg.text in ["Me"]:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': mid}
-                cl.sendMessage(msg)
-            elif msg.text in ["Say1"]:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': Amid}
-                ki.sendMessage(msg)
-            elif msg.text in ["Say2"]:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': Bmid}
-                kk.sendMessage(msg)
-            elif msg.text in ["æ„›ã®ãƒ—ãƒ¬ã‚¼ãƒ³ãƒˆ","Gift"]:
-                msg.contentType = 9
-                msg.contentMetadata={'PRDID': '8968',
-                                    'PRDTYPE': 'STICKER',
-                                    'MSGTPL': '5'}
-                msg.text = None
-                cl.sendMessage(msg)
-            elif msg.text in ["æ„›ã®ãƒ—ãƒ¬ã‚¼ãƒ³ãƒˆ","Say1 gift"]:
-                msg.contentType = 9
-                msg.contentMetadata={'PRDID': '1364259',
-                                    'PRDTYPE': 'STICKER',
-                                    'MSGTPL': '6'}
-                msg.text = None
-                ki.sendMessage(msg)
-            elif msg.text in ["æ„›ã®ãƒ—ãƒ¬ã‚¼ãƒ³ãƒˆ","Say2 gift"]:
-                msg.contentType = 9
-                msg.contentMetadata={'PRDID': '3963',
+          '3963',
                                     'PRDTYPE': 'STICKER',
                                     'MSGTPL': '8'}
                 msg.text = None

@@ -204,7 +204,7 @@ def bot(op):
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
         if op.type == 15:
-            random.choice(KAC).sendText(op.param1, "Good Bye :)")
+            random.choice(KAC).sendText(op.param1, "Good Bye :) Kak,Tanks")
             print op.param3 + "has left the group"
 
         if op.type == 17:
@@ -242,6 +242,7 @@ def bot(op):
             if msg.contentType == 16:
                 url = msg.contentMetadata["postEndUrl"]
                 cl.like(url[25:58], url[66:], likeType=1001)
+                cl.comment(url[25:58], url[66:], "Auto Like by\nline.me/ti/p/~satria_hk")
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
@@ -361,18 +362,18 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki3mid}
                 ki3.sendMessage(msg)
-            elif "Kb4" == msg.text:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki4mid}
-                ki4.sendMessage(msg)
-            elif "Kb5" == msg.text:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki5mid}
-                ki5.sendMessage(msg)
-            elif "Kb6" == msg.text:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki6mid}
-                ki6.sendMessage(msg)
+            #elif "Kb4" == msg.text:
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki4mid}
+                #ki4.sendMessage(msg)
+            #elif "Kb5" == msg.text:
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki5mid}
+                #ki5.sendMessage(msg)
+            #elif "Kb6" == msg.text:
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki6mid}
+                #ki6.sendMessage(msg)
             elif msg.text in ["Gift","gift"]:
                 msg.contentType = 9
                 msg.contentMetadata={'PRDID': '3b92ccf5-54d3-4765-848f-c9ffdc1da020',
@@ -469,7 +470,8 @@ def bot(op):
                                     'MSGTPL': '5'}
                 msg.text = None
                 ki3.sendMessage(msg)
-#-----------------------------------------------                        elif msg.text.lower() == 'hore':
+#-----------------------------------------------                             
+            elif msg.text.lower() == 'hore':
                 msg.contentType = 7
                 msg.text = None
                 msg.contentMetadata = {
@@ -477,8 +479,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'ok':
                 msg.contentType = 7
                 msg.text = None
@@ -487,8 +490,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'siap bos':
                 msg.contentType = 7
                 msg.text = None
@@ -497,8 +501,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'tanks':
                 msg.contentType = 7
                 msg.text = None
@@ -507,8 +512,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'lol':
                 msg.contentType = 7
                 msg.text = None
@@ -517,8 +523,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'sue':
                 msg.contentType = 7
                 msg.text = None
@@ -527,8 +534,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'no':
                 msg.contentType = 7
                 msg.text = None
@@ -537,8 +545,9 @@ def bot(op):
                                      "STKPKGID": "8543",
                                      "STKVER": "7" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'suntuk':
                 msg.contentType = 7
                 msg.text = None
@@ -547,8 +556,9 @@ def bot(op):
                                      "STKPKGID": "1380280",
                                      "STKVER": "1" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'apa?':
                 msg.contentType = 7
                 msg.text = None
@@ -557,8 +567,9 @@ def bot(op):
                                      "STKPKGID": "1380280",
                                      "STKVER": "1" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == '?':
                 msg.contentType = 7
                 msg.text = None
@@ -567,8 +578,9 @@ def bot(op):
                                      "STKPKGID": "1380280",
                                      "STKVER": "1" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == 'pose dulu':
                 msg.contentType = 7
                 msg.text = None
@@ -577,8 +589,9 @@ def bot(op):
                                      "STKPKGID": "1380280",
                                      "STKVER": "1" }
                 cl.sendMessage(msg)
-                cl.sendMessage(msg)
-                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == '250c':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
@@ -587,12 +600,19 @@ def bot(op):
                                     'STKPKGID': '1380280'}
                 msg.text = None
                 cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
             elif msg.text.lower() == '200c':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
                                     'STKVER': '1',
                                     'MSGTPL': '5',
                                     'STKPKGID': '1319678'}
+                cl.sendMessage(msg)
+                ki.sendMessage(msg)
+                ki2.sendMessage(msg)
+                ki3.sendMessage(msg)
 #-----------------------------------------------
             elif msg.text in ["B Cancel","Cancel say","B cancel"]:
                 if msg.toType == 2:
@@ -1945,7 +1965,7 @@ def bot(op):
                 ki5.sendText(msg.to, "%s second" % (elapsed_time))
                 ki6.sendText(msg.to, "%s second" % (elapsed_time))
 #----------------------------------------------- 
-            elif msg.text in ["Cipok","Miss You","Tagall"]:
+            elif msg.text in ["Cipok","Miss you","Tagall"]:
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
@@ -1960,7 +1980,7 @@ def bot(op):
 
                       strt = strt + int(7)
                       akh = akh + 1
-                      cb2 += "@nrik \n"
+                      cb2 += ".@nrik \n"
 
                   cb = (cb[:int(len(cb)-1)])
                   msg.contentType = 0

@@ -193,9 +193,6 @@ class LINE:
 
   """Group"""
 
-  def findGroupByTicket(self, ticketId):
-        return self.Talk.client.findGroupByTicket(ticketId)
-
   def acceptGroupInvitation(self, groupId):
         return self.Talk.client.acceptGroupInvitation(0, groupId)
 
@@ -265,7 +262,7 @@ class LINE:
   def comment(self, mid, postid, text):
     return self.channel.comment(mid, postid, text)
 
-  def activity(self, limit=20):
+  def activity(self, limit=2000):
     return self.channel.activity(limit)
 
   def getAlbum(self, gid):
@@ -311,7 +308,7 @@ class LINE:
 
       prof = self.getProfile()
 
-      print("R.A-BOT")
+      print("SatriaSelf")
       print("mid -> " + prof.mid)
       print("name -> " + prof.displayName)
       print("authToken -> " + self.authToken)

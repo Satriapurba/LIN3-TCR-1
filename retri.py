@@ -2426,6 +2426,17 @@ def a2():
         return False
     else:
         return True
+def autolike():
+    while True:
+        try:
+            for posts in cl.activity(1)["result"]["posts"]:
+                if posts["postInfo"]["liked"] is False:
+                    cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1002)
+                    cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],c_text)
+                    print u"liked" + str(i)
+                i += 1
+        except Exception as e:
+                print e
 def nameUpdate():
     while True:
         try:
@@ -2433,7 +2444,7 @@ def nameUpdate():
             #pass
             if wait["clock"] == True:
                 now2 = datetime.now()
-                nowT = datetime.strftime(now2,"(%H:%M)")
+                nowT = datetime.strftime(now2,"༺%H:%M༻")
                 profile = cl.getProfile()
                 profile.displayName = wait["cName"] + nowT
                 cl.updateProfile(profile)

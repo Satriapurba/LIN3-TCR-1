@@ -17,7 +17,7 @@ class Talk:
   auth_query_path = "/api/v4/TalkService.do";
   http_query_path = "/S4";
   wait_for_mobile_path = "/Q";
-  host = "gd2.line.naver.jp";
+  host = "gfs.line.naver.jp";
   port = 443;
 
   UA = "Line/6.0.0 iPad4,1 9.0.2"
@@ -27,7 +27,7 @@ class Talk:
   cert = None
 
   def __init__(self):
-    self.transport = THttpClient.THttpClient('https://gd2.line.naver.jp:443'+self.auth_query_path)
+    self.transport = THttpClient.THttpClient('https://gfs.line.naver.jp:443'+self.auth_query_path)
     self.transport.setCustomHeaders({
       "User-Agent" : self.UA,
       "X-Line-Application" : self.LA,
@@ -89,7 +89,7 @@ class Talk:
   def qrLogin(self, callback):
     self.transport.path = self.auth_query_path
 
-    qr = self.client.getAuthQrcode(True, "Bot")
+    qr = self.client.getAuthQrcode(True, "Satria-pc")
     callback("Copy to Line and Click\nYour LINK QR is: line://au/q/" + qr.verifier)
 
     r = requests.get("https://" + self.host + self.wait_for_mobile_path, headers={

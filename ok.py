@@ -111,7 +111,7 @@ helpMessage =""" 🐯S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̰̃̃�
 ❂͜͡☆➣ [Banlist]
 ❂͜͡☆➣ [Mcheck]
   
-  🐯☆[S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃T̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃R̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ḭ̷̶̷̶̷̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̶̷̰̰̰̰̃̃̃̃̃̃̃ ̶̷̰̰̃̃̃̃S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ḛ̷̶̷̶̷̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃L̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃F̷̶̷̰̰̰̰̃̃̃̃̃̃̃̃ B̴̡̛͈̖̺͖̙̝̩̞̐̂̀͂̏̚͟͠O̸̡̩̣̲̣̜̊̑̾̾͊̃͘͜ͅT Ç̵͔̟̫̰̮̺̟̥̂̋̂͋͐͛͑̔̚̚O̷̧̺̠̰̳̿́͆̕̕͠ͅ N̶͖̜̻̰͍̮̼̒́̐̑͒́̕ͅŢ̢̯̱͕̠͙̤̙̄̂͗̊̈́̕R̶̛̙̩̱̗̯͌̈͆̆Ơ̴̡͈̖̺͖̙̝̩̞̐̂̀͂̏̚͟͠L̸̡̩̣̲̣̜̊̑̾̾͊̃͘͜ͅ ☆🐯
+  🐯S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃T̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃R̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ḭ̷̶̷̶̷̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̶̷̰̰̰̰̃̃̃̃̃̃̃ ̶̷̰̰̃̃̃̃S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ḛ̷̶̷̶̷̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃L̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃F̷̶̷̰̰̰̰̃̃̃̃̃̃̃̃ B̴̡̛͈̖̺͖̙̝̩̞̐̂̀͂̏̚͟͠O̸̡̩̣̲̣̜̊̑̾̾͊̃͘͜ͅT Ç̵͔̟̫̰̮̺̟̥̂̋̂͋͐͛͑̔̚̚O̷̧̺̠̰̳̿́͆̕̕͠ͅ N̶͖̜̻̰͍̮̼̒́̐̑͒́̕ͅŢ̢̯̱͕̠͙̤̙̄̂͗̊̈́̕R̶̛̙̩̱̗̯͌̈͆̆Ơ̴̡͈̖̺͖̙̝̩̞̐̂̀͂̏̚͟͠L̸̡̩̣̲̣̜̊̑̾̾͊̃͘͜ͅ 🐯
 """
 helo=""
 
@@ -2384,20 +2384,19 @@ def a2():
     nowT = datetime.strftime(now2,"%M")
     if nowT[14:] in ["10","20","30","40","50","00"]:
         return False
-    else:
-        return True
 def autolike():
     while True:
         try:
             for posts in cl.activity(1)["result"]["posts"]:
                 if posts["postInfo"]["liked"] is False:
-                    cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1002)
+                    cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
                     cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],c_text)
                     print u"liked" + str(i)
                 i += 1
         except Exception as e:
                 print e
-
+    else:
+        return True
 def nameUpdate():
     while True:
         try:

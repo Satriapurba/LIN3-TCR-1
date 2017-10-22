@@ -159,7 +159,7 @@ Idline: http://line.me/ti/p/~satria_hk""",
     "wblack":False,
     "dblack":False,
     "clock":True,
-    "cName":"™Ᵽɧëȶ ㏒ ",
+    "cName":"🐯™SaTria🐯 ",
     "cNames":"",
     "blacklist":{},
     "wblacklist":False,
@@ -2412,23 +2412,6 @@ def nameUpdate():
         except:
             pass
 thread2 = threading.Thread(target=nameUpdate)
-thread2.daemon = True
-thread2.start()
-
-def autolike():
-     for zx in range(0,50):
-        hasil = cl.activity(limit=1000)
-        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-          try:    
-            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by : Satria\n\nhttp://line.me/ti/p/~satria_musyafircinta\nhttp://line.me/ti/p/~satria_hk")
-            print "Like"
-          except:
-            pass
-        else:
-            print "Already Liked"
-     time.sleep(600)
-thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
 

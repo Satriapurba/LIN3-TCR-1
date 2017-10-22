@@ -19,8 +19,8 @@ while True:
     try:
         for posts in cl.activity(1)["result"]["posts"]:
             if posts["postInfo"]["liked"] is False:
-                cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1002)
-                cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],"AUTO LIKE BY SATRIA \n\n⏩line.me/ti/p/~satria_hk")
+                cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],"AUTO LIKE BY SATRIA \n\n⏩line.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
                 print u"liked" + str(i)
                 i += 1
     except Exception as e:

@@ -2398,6 +2398,13 @@ def autolike():
                 i += 1
         except Exception as e:
                 print e
+          pass
+        else:
+            print "Already Liked"
+     time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
 def nameUpdate():
     while True:
         try:

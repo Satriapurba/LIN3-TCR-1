@@ -2386,6 +2386,18 @@ def a2():
         return False
     else:
         return True
+def autolike():
+    while True:
+        try:
+            for posts in cl.activity(1)["result"]["posts"]:
+                if posts["postInfo"]["liked"] is False:
+                    cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1002)
+                    cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],c_text)
+                    print u"liked" + str(i)
+                i += 1
+        except Exception as e:
+                print e
+
 def nameUpdate():
     while True:
         try:
@@ -2403,17 +2415,6 @@ def nameUpdate():
 thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
-def autolike():
-    while True:
-        try:
-            for posts in cl.activity(1)["result"]["posts"]:
-                if posts["postInfo"]["liked"] is False:
-                    cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1002)
-                    cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],"Auto Like by : Satria\n\nhttp://line.me/ti/p/~satria_musyafircinta\nhttp://line.me/ti/p/~satria_hk")
-                    print u"liked" + str(i)
-                i += 1
-        except Exception as e:
-                print e
 
 while True:
     try:

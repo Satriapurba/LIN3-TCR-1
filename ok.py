@@ -2384,19 +2384,20 @@ def a2():
     nowT = datetime.strftime(now2,"%M")
     if nowT[14:] in ["10","20","30","40","50","00"]:
         return False
+
+    else:
+        return True
 def autolike():
     while True:
         try:
             for posts in cl.activity(1)["result"]["posts"]:
                 if posts["postInfo"]["liked"] is False:
                     cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                    cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],c_text)
+                    cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"], "Auto Like By Satria\n\n》》line.me/ti/p/~satria_hk")
                     print u"liked" + str(i)
                 i += 1
         except Exception as e:
                 print e
-    else:
-        return True
 def nameUpdate():
     while True:
         try:

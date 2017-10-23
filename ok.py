@@ -1182,18 +1182,6 @@ def bot(op):
                         h += "[⭐] %s  \n" % (cl.getGroup(i).name + " | Members : " + str(len (cl.getGroup(i).members)))
                     cl.sendText(msg.to, "☆「Group List」☆\n"+ h +"Total Group : " +str(len(gid)))
 
-        #-------------Fungsi Creator Start-----------------#
-            elif msg.text in ["Bot Creator"]:
-                if msg.toType == 2:
-                      msg.contentType = 13
-                      Creatorbot = "u308205dd6abcc4bec5da585db20ab076"
-                      try:
-                          msg.contentMetadata = {'mid': Creatorbot}
-                      except:
-                          Creatorbot = "Error"
-                      cl.sendText(msg.to, "My Creator : Ari.")
-                      cl.sendMessage(msg)
-
 #-----------------------------------------
 
             elif "Copy @" in msg.text:
@@ -1252,36 +1240,6 @@ def bot(op):
                     cl.sendText(msg.to,"Satria Self Sudah Keluar Di semua grup")
                 else:
                     cl.sendText(msg.to,"He declined all invitations")
-        #-------------Fungsi Creator Finish-----------------#
-
-            elif msg.text in ["Gcreator:inv"]:
-                if msg.from_ in admin:
-                   ginfo = cl.getGroup(msg.to)
-                   gCreator = ginfo.creator.mid
-                   try:
-                      cl.findAndAddContactsByMid(gCreator)
-                      cl.inviteIntoGroup(msg.to,[gCreator])
-                      print "success inv gCreator"
-                   except:
-                      pass
-
-            elif "GroupCreator" == msg.text:
-                try:
-                    group = cl.getGroup(msg.to)
-                    GS = group.creator.mid
-                    M = Message()
-                    M.to = msg.to
-                    M.contentType = 13
-                    M.contentMetadata = {'mid': GS}
-                    cl.sendMessage(M)
-                except:
-                    W = group.members[0].mid
-                    M = Message()
-                    M.to = msg.to
-                    M.contentType = 13
-                    M.contentMetadata = {'mid': W}
-                    cl.sendMessage(M)
-                    cl.sendText(msg.to,"old user")
 
             elif msg.text in ["Group cancelall","Rejectall"]:
                 gid = cl.getGroupIdsInvited()

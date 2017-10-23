@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+j# -*- coding: utf-8 -*-
 
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
@@ -208,27 +208,12 @@ def bot(op):
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
 
-        if op.type == 15:
-            if op.param2 in Bots:
-                group = random.choice(KAC).getGroup(op.param1)
-                cb = Message()
-                cb.to = op.param1
-                cb.text = + random.choice(KAC).getContact(op.param2).displayName + " [LeaveGroup]\n\n" + random.choice(KAC).getContact(op.param2).displayName + " Selamat Tinggal Kawan\n(*´･ω･*)"
-                random.choice(KAC).sendMessage(cb)
-
         if op.type == 17:
-                group = random.choice(KAC).getGroup(op.param1)
-                cb = Message()
-                cb.to = op.param1
-                cb.text = random.choice(KAC).getContact(op.param2).displayName + " [NewMemb]\n\nSelamat Datang @" + random.choice(KAC).getContact(op.param2).displayName + " di [" + group.name + "]\nJangan nakal disini! ok!" + "\n\nOwner => " + group.creator.displayName 
-                random.choice(KAC).sendMessage(cb)
-
-#        if op.type == 17:
-#            group = cl.getGroup(op.param1)
-#            cb = Message()
-#            cb.to = op.param1
-#            cb.text = #cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
-#            cl.sendMessage(cb)
+            group = cl.getGroup(op.param1)
+            cb = Message()
+            cb.to = op.param1
+            cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
+            cl.sendMessage(cb)
         if op.type == 19:
             if mid in op.param3:
                 wait["blacklist"][op.param2] = True

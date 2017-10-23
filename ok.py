@@ -1183,44 +1183,6 @@ def bot(op):
                     cl.sendText(msg.to, "☆「Group List」☆\n"+ h +"Total Group : " +str(len(gid)))
 
 #-----------------------------------------
-
-            elif "Copy @" in msg.text:
-                if msg.from_ in admin:
-                     print "[COPY] Ok"
-                     _name = msg.text.replace("Copy @","")
-                     _nametarget = _name.rstrip('  ')
-                     gs = cl.getGroup(msg.to)
-                     targets = []
-                     for g in gs.member:
-                         if _nametarget == g.displayName:
-                             targets.append(g.mid)
-                     if targets == []:
-                         cl.sendMessage(msg.to, "Not Found...")
-                     else:
-                         for target in targets:
-                             try:
-                                cl.CloneContactProfile(target)
-                                cl.sendMessage(msg.to, "Succes Copy profile")
-                             except Exception as e:
-                                 print error
-
-            elif "Steal: " in msg.text:
-                if msg.from_ in admin:
-                    salsa = msg.text.replace("Steal: ","")
-                    Manis = cl.getContact(salsa)
-                    Imoet = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-                    try:
-                        cover = cl.channel.getCover(Manis)
-                    except:
-                        cover = ""
-                    cl.sendText(msg.to,"Gambar Foto Profilenya")
-                    cl.sendImageWithURL(msg.to,Imoet)
-                    if cover == "":
-                        cl.sendText(msg.to,"User tidak memiliki cover atau sejenisnya")
-                    else:
-                        cl.sendText(msg.to,"Gambar Covernya")
-                        cl.sendImageWithURL(msg.to,cover)
-#-----------------------------------------
             elif msg.text.lower() == 'Bot out':
                 gid = cl.getGroupIdsJoined()
                 gid = ki.getGroupIdsJoined()
@@ -1742,35 +1704,6 @@ def bot(op):
                         cl.sendText(msg.to,str(e))
                     except:
                         pass
-#-----------------------------------------------
-            elif "Bcc: " in msg.text:
-                if msg.from_ in admin:
-                     broadcasttxt = msg.text.replace("Bcc: ", "")
-                     orang = cl.getAllContactIds()
-                     for manusia in orang:
-                          ki.sendText(manusia, (broadcasttxt))
-
-            elif "Bcgc: " in msg.text:
-                if msg.from_ in admin:
-                     broadcasttxt = msg.text.replace("Bcgc: ", "")
-                     orang = cl.getGroupIdsJoined()
-                     for manusia in orang:
-                          kk.sendText(manusia, (broadcasttxt))
-
-            elif "Bcgroup " in msg.text:
-                if msg.from_ in admin:
-                    bctxt = msg.text.replace("Bcgroup ", "")
-                    n = cl.getGroupIdsJoined()
-                    for manusia in n:
-                         cl.sendText(manusia, (bctxt))
-
-            elif "Bccontact " in msg.text:
-                if msg.from_ in admin:
-                    bctxt = msg.text.replace("Bccontact ", "")
-                    t = cl.getAllContactIds()
-                    for manusia in t:
-                         cl.sendText(manusia, (bctxt))
-
 #-----------------------------------------------
             elif msg.text.lower() == 'pinky':
                         G = cl.getGroup(msg.to)

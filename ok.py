@@ -1232,64 +1232,6 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Gambar Covernya")
                         cl.sendImageWithURL(msg.to,cover)
-
-#-----------------------------------------
-	        elif wait["winvite"] == True:
-                     if msg.from_ in admin:
-                         _name = msg.contentMetadata["displayName"]
-                         invite = msg.contentMetadata["mid"]
-                         groups = cl.getGroup(msg.to)
-                         pending = groups.invitee
-                         targets = []
-                         for s in groups.members:
-                             if _name in s.displayName:
-                                 ki.sendText(msg.to,"-> " + _name + " was here")
-                                 break
-                             elif invite in wait["blacklist"]:
-                                 ki.sendText(msg.to,"Sorry, " + _name + " On Blacklist")
-                                 kk.sendText(msg.to,"Banned contact!, \n➡Unban: " + invite)
-                                 break
-                             else:
-                                 targets.append(invite)
-                         if targets == []:
-                             pass
-                         else:
-                             for target in targets:
-                                 try:
-                                     cl.findAndAddContactsByMid(target)
-                                     cl.inviteIntoGroup(msg.to,[target])
-                                     cl.sendText(msg.to,"Invited: \n➡" + _name)
-                                     wait["winvite"] = False
-                                     break
-                                 except:
-                                     try:
-                                         ki.findAndAddContactsByMid(invite)
-                                         ki.inviteIntoGroup(op.param1,[invite])
-                                         wait["winvite"] = False
-                                     except:
-                                         try:
-                                             ki.findAndAddContactsByMid(invite)
-                                             ki.inviteIntoGroup(op.param1,[invite])
-                                             wait["winvite"] = False
-                                             ki.sendText(msg.to,"Failed Invite: \n➡" + _name)
-                                             break
-                                         except:
-                                            try:
-                                                 kk.findAndAddContactsByMid(invite)
-                                                 kk.inviteIntoGroup(op.param1,[invite])
-                                                 wait["winvite"] = False
-                                                 kk.sendText(msg.to,"Done. \n➡" + _name)
-                                                 break
-                                            except:
-                                                 cl.sendText(msg.to,"Negative, Error detected")
-                                                 wait["winvite"] = False
-                                                 break
-
-            elif msg.text in ["Cinvite"]:
-            	if msg.from_ in admin:
-				   wait["winvite"] = True
-                   cl.sendText(msg.to,"send contact 😉")
-
 #-----------------------------------------
             elif msg.text.lower() == 'Bot out':
                 gid = cl.getGroupIdsJoined()
@@ -1534,7 +1476,7 @@ def bot(op):
                     cl.sendText(msg.to,"Diperbarui👈")
                 else:
                     cl.sendText(msg.to,"Silahkan Aktifkan Nama")
-
+#-----------------------------------------------
             elif msg.text == "$set":
                 if msg.toType == 2:
                     cl.sendText(msg.to, "Check sider")
@@ -1563,6 +1505,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
 
+#------------------------------------------------
             elif "NK " in msg.text:
                        nk0 = msg.text.replace("NK ","")
                        nk1 = nk0.lstrip()
@@ -2614,10 +2557,6 @@ def autolike():
                 i += 1
         except Exception as e:
                 print e
-         pass
-       else:
-           print "Already Liked"
-    time.sleep(500)
 thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
